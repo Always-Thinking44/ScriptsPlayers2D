@@ -3,15 +3,23 @@ using UnityEngine.SceneManagement;
 
 public class enemy : MonoBehaviour
 {
+    private Animator animatorPlayer;
+    private Rigidbody2D rbPlayer;
+    private moviementoplayer movPlayer;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<Animator>().SetTrigger("Dead");
-            collision.gameObject.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero; 
-            collision.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-            collision.gameObject.GetComponent<Movimento>().enabled = false;
-            collision.gameObject.GetComponent<Animator>().SetBool("salto", false);
+            animatorPlayer = collision.gameObject.GetComponent<Animator>();
+            rbPlayer = collision.gameObject.GetComponent<Rigidbody2D>();
+            movPlayer = collision.gameObject.GetComponent<moviementoplayer>();
+
+            animatorPlayer.SetTrigger("Dead");
+            rbPlayer.linearVelocity = Vector2.zero;
+            rbPlayer.bodyType = RigidbodyType2D.Kinematic;
+            movPlayer.enabled = false;
+            animatorPlayer.SetBool("salto", false);
             Invoke("LoadScene", 1f);
         }
     }
