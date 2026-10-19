@@ -5,7 +5,7 @@ public class enemy : MonoBehaviour
 {
     private Animator animatorPlayer;
     private Rigidbody2D rbPlayer;
-    private moviementoplayer movPlayer;
+    private walkingJumpingPlayer movPlayer;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -13,7 +13,7 @@ public class enemy : MonoBehaviour
         {
             animatorPlayer = collision.gameObject.GetComponent<Animator>();
             rbPlayer = collision.gameObject.GetComponent<Rigidbody2D>();
-            movPlayer = collision.gameObject.GetComponent<moviementoplayer>();
+            movPlayer = collision.gameObject.GetComponent<walkingJumpingPlayer>();
 
             animatorPlayer.SetTrigger("Dead");
             rbPlayer.linearVelocity = Vector2.zero;

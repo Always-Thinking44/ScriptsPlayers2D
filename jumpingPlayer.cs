@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class saltoPlayer : MonoBehaviour
+public class jumpingPlayer : MonoBehaviour
 {
     public float forcaPulo = 7f;
 

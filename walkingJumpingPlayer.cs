@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class moviementoplayer : MonoBehaviour
+public class walkingJumpingPlayer : MonoBehaviour
 {
     public float velocidade = 5f;
     public float forcaPulo = 7f;
